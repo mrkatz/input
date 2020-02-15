@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":178:{a:2:{s:7:"defects";a:1:{s:53:"Mrkatz\Tests\Unit\InputTest::it_creates_a_basic_input";i:4;}s:5:"times";a:1:{s:53:"Mrkatz\Tests\Unit\InputTest::it_creates_a_basic_input";d:0.135;}}}

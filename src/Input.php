@@ -92,7 +92,13 @@ class Input
                     $stub = str_replace('{input}', $this->getStub(), $stub);
                 } else {
 
-                    $stub = "<{$wrapType} {$wrapClass}>{$this->getStub()}</{$wrapType}>";
+                    if ($this->hasLabel()) {
+                        $label = str_replace('{input}', $this->getStub(), $this->getLabel(true));
+
+                        $stub = str_replace('{input}', $label, "<{$wrapType} {$wrapClass}>{input}</{$wrapType}>");
+                    } else {
+                        $stub = "<{$wrapType} {$wrapClass}>{$this->getStub()}</{$wrapType}>";
+                    }
                 }
             } else {
 

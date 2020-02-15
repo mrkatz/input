@@ -17,6 +17,47 @@ $ composer require mrkatz/input
 
 ## Usage
 
+``` php
+{!! input()->text('name','value') !!}
+```
+``` html
+<input name="name" type="text" value="value">
+```
+
+``` php
+{!! input()->text('name','value')->wrap('div','form-group')->label('My Input')->id('idName') !!}
+```
+``` html
+<div class="form-group">
+    <label for="idName">My Input</label>
+    <input name="name" type="text" id="idName" value="value">
+</div>
+```
+
+``` php
+{!! input()
+        ->select('DaysOfWeek',['1' => 'Monday','2' => 'Tuesday', '3' => 'Wednesday'])
+        ->label('Choose a Day')
+        ->placeholder('Choose A Day')
+        ->wrap(null,'form-group','<div><div {class}>{label}</div><div {class}>{input}</div></div>') !!}
+```
+``` html
+<div>
+    <div class="form-group">
+        <label>Choose a Day</label>
+    </div>
+    <div class="form-group">
+        <select name="DaysOfWeek">
+            <option selected="" disabled="" hidden="">Choose A Day </option>
+            <option value="1">Monday </option>
+            <option value="2">Tuesday </option>
+            <option value="3">Wednesday </option> 
+        </select>
+    </div>
+</div>
+```
+
+
 ## Change log
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.

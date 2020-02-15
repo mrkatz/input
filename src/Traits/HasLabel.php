@@ -34,11 +34,12 @@ trait HasLabel
                         break;
                 }
             }
-            $this->labelPosition = $option2;
         }
 
         if (is_string($option1)) {
             $this->labelPosition = $option1;
+        } elseif (is_string($option2)) {
+            $this->labelPosition = $option2;
         }
 
         return $this;

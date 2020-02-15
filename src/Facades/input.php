@@ -4,7 +4,7 @@ namespace Mrkatz\Input\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class input extends Facade
+class Input extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class input extends Facade
      */
     protected static function getFacadeAccessor()
     {
-        return 'input';
+        return 'Input';
     }
 }

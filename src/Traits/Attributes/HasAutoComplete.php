@@ -43,7 +43,7 @@ trait HasAutoComplete
      *
      * @return HasAutoComplete
      */
-    public function autocomplete($autocomplete = false)
+    public function autocomplete($autocomplete = true)
     {
         $this->autocomplete = $autocomplete;
 

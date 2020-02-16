@@ -38,7 +38,7 @@ trait HasRequired
      *
      * @return HasRequired
      */
-    public function required($required)
+    public function required($required = true)
     {
         $this->required = $required;
 

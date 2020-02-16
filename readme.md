@@ -5,7 +5,7 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+A html generator for Inputs. See Below.
 
 ## Installation
 
@@ -79,7 +79,6 @@ If you discover any security related issues, please email adamkaczocha@gmail.com
 ## Credits
 
 - [Adam Kaczocha][link-author]
-- [All Contributors][link-contributors]
 
 ## License
 
@@ -95,4 +94,3 @@ MIT. Please see the [license file](license.md) for more information.
 [link-travis]: https://travis-ci.org/mrkatz/input
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/mrkatz
-[link-contributors]: ../../contributors

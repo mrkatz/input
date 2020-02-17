@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasAutoComplete
 {
     private $autocomplete;
@@ -41,12 +43,12 @@ trait HasAutoComplete
     /**
      * @param bool $autocomplete
      *
-     * @return HasAutoComplete
+     * @return Input
      */
     public function autocomplete($autocomplete = true)
     {
         $this->autocomplete = $autocomplete;
 
-        return $this;
+        return $this->return();
     }
 }

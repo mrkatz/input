@@ -7,6 +7,7 @@ return [
         |--------------------------------------------------------------------------
         */
     'global' => [
+        'errors' => 'bottom' //null, top, bottom, wrap
 
 
     ],
@@ -48,6 +49,8 @@ return [
         'progress' => '<progress {id}{class}{title}{value}{max}></progress>',
         'meter'    => '<meter {id}{class}{min}{max}{value}{form}></meter>',
 
+        'error' => '<div class="invalid-feedback">{message}</div>',
+
 
     ],
 
@@ -57,7 +60,7 @@ return [
 |--------------------------------------------------------------------------
 */
     'slots'  => [
-        'label'          => ['class', 'title', 'onclick', 'value','for'],
+        'label'          => ['class', 'title', 'onclick', 'value', 'for'],
         'button'         => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'formaction', 'formenctype', 'formmethod', 'formnovalidate', 'formtarget', 'maxlength', 'onchange', 'onclick', 'readonly', 'size',],
         'checkbox'       => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'checked', 'disabled', 'onchange', 'onclick', 'readonly', 'required', 'size',],
         'color'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'onchange', 'onclick', 'readonly', 'size',],

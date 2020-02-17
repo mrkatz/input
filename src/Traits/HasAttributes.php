@@ -38,17 +38,6 @@ trait HasAttributes
     use HasAlt, HasAutofocus, HasAutoComplete, HasChecked, HasClass, HasDisabled, HasForm, HasHeight, HasMax, HasMaxLength, HasMin, HasMultiple, HasName, HasHidden,
         HasOptions, HasPattern, HasPlaceholder, HasSelected, HasReadonly, HasRequired, HasSize, HasSrc, HasStep, HasTitle, HasType, HasValue, HasWidth, HasID, HasOnChange, HasOnClick;
 
-    protected function loadDefaults()
-    {
-        if (count($this->class) == 0) {
-            $this->class($this->config("{$this->getType()}.class", $this->config("default.class")));
-        }
-
-        if (count($this->errorClass) == 0) {
-            $this->errorClass($this->config("{$this->getType()}.errorClass", $this->config("default.errorClass")));
-        }
-    }
-
     /**
      * @param array|null $attributes
      *
@@ -174,6 +163,6 @@ trait HasAttributes
             }
         }
 
-        return $this;
+        return $this->return();
     }
 }

@@ -42,6 +42,6 @@ trait HasTitle
     {
         $this->title = $title;
 
-        return $this;
+        return $this->return();
     }
 }

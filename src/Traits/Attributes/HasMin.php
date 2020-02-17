@@ -37,6 +37,6 @@ trait HasMin
     public function min($min)
     {
         $this->min = $min;
-        return $this;
+        return $this->return();
     }
 }

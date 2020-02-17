@@ -40,6 +40,6 @@ trait HasPlaceholder
     {
         $this->placeholder = $placeholder;
 
-        return $this;
+        return $this->return();
     }
 }

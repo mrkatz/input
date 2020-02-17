@@ -43,6 +43,6 @@ trait HasPattern
     {
         $this->pattern = $pattern;
 
-        return $this;
+        return $this->return();
     }
 }

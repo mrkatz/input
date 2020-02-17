@@ -40,6 +40,6 @@ trait HasOnChange
     {
         $this->onChange = $onChange;
 
-        return $this;
+        return $this->return();
     }
 }

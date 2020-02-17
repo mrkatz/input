@@ -40,6 +40,6 @@ trait HasName
     {
         $this->name = $name;
 
-        return $this;
+        return $this->return();
     }
 }

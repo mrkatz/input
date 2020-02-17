@@ -46,6 +46,6 @@ trait HasSrc
             $this->src = $src;
         }
 
-        return $this;
+        return $this->return();
     }
 }

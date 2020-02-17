@@ -7,14 +7,16 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Mrkatz\Input\Traits\HasAttributes;
+use Mrkatz\Input\Traits\HasDefaults;
 use Mrkatz\Input\Traits\HasErrorHandling;
-use Mrkatz\Input\Traits\HasFormating;
+use Mrkatz\Input\Traits\HasFormatting;
+use Mrkatz\Input\Traits\HasHtml;
 use Mrkatz\Input\Traits\HasInputHelpers;
 use Mrkatz\Input\Traits\HasLabel;
 
 class Input
 {
-    use HasAttributes, HasErrorHandling, HasFormating, HasInputHelpers, HasLabel;
+    use HasAttributes, HasErrorHandling, HasFormatting, HasInputHelpers, HasLabel, HasDefaults, HasHtml;
 
     /**
      * The session store implementation.
@@ -47,9 +49,7 @@ class Input
         $this->request   = $request;
         $this->errors    = $this->view->shared('errors');
 
-        $this->wrap = [
-
-        ];
+        $this->configDefaults();
     }
 
     public function __toString()
@@ -57,72 +57,72 @@ class Input
         return $this->html();
     }
 
-    public function html()
-    {
-        $stub = null;
-        if ($this->config('global.wrap')) {
-            $stub = $this->config('global.wrap');
-            if (!in_array($this->config('global.wrap-class'), ['', null])) {
-                $stub = str_replace("{class}", "class=\"{$this->config('global.wrap-class')}\"", $stub);
-            } else {
-                $stub = str_replace("{class}", "", $stub);
-            }
-
-            $stub = str_replace("{input}", $this->getStub(), $stub);
-        } else {
-            if (isset($this->wrap['type']) || isset($this->wrap['format'])) {
-
-                $wrap       = $this->wrap;
-                $wrapType   = $wrap['type'];
-                $wrapClass  = isset($wrap['class']) ? "class=\"{$wrap['class']}\"" : '';
-                $wrapFormat = $wrap['format'];
-
-                if (isset($wrapFormat)) {
-                    $stub = $wrapFormat;
-
-                    if (strpos($stub, '{class}')) {
-                        $stub = str_replace('{class}', $wrapClass, $stub);
-                    }
-
-                    if (strpos($stub, '{label}')) {
-                        $this->labelPosition = 'wrap';
-                        $stub                = str_replace('{label}', $this->getLabel(true), $stub);
-                    }
-
-                    $stub = str_replace('{input}', $this->getStub(), $stub);
-                } else {
-
-                    if ($this->hasLabel()) {
-                        $label = str_replace('{input}', $this->getStub(), $this->getLabel(true));
-
-                        $stub = str_replace('{input}', $label, "<{$wrapType} {$wrapClass}>{input}</{$wrapType}>");
-                    } else {
-                        $stub = "<{$wrapType} {$wrapClass}>{$this->getStub()}</{$wrapType}>";
-                    }
-                }
-            } else {
-
-                if ($this->hasLabel()) {
-
-                    $stub = str_replace('{input}', $this->getStub(), $this->getLabel(true));
-                } else {
-                    $stub = $this->getStub();
-                }
-
-            }
-        }
-
-
-        foreach ($this->config("slots.{$this->getType()}") as $attribute) {
-            $function = 'get' . ucfirst($attribute);
-            $value    = $this->$function(true);
-
-            if ($value != '') $value .= ' ';
-            $stub = str_replace("{{$attribute}}", $value, $stub);
-        }
-
-        return $stub;
-    }
+//    public function html()
+//    {
+//        $stub = null;
+//        if ($this->config('global.wrap')) {
+//            $stub = $this->config('global.wrap');
+//            if (!in_array($this->config('global.wrap-class'), ['', null])) {
+//                $stub = str_replace("{class}", "class=\"{$this->config('global.wrap-class')}\"", $stub);
+//            } else {
+//                $stub = str_replace("{class}", "", $stub);
+//            }
+//
+//            $stub = str_replace("{input}", $this->getStub(), $stub);
+//        } else {
+//            if (isset($this->wrap['type']) || isset($this->wrap['format'])) {
+//
+//                $wrap       = $this->wrap;
+//                $wrapType   = $wrap['type'];
+//                $wrapClass  = isset($wrap['class']) ? "class=\"{$wrap['class']}\"" : '';
+//                $wrapFormat = $wrap['format'];
+//
+//                if (isset($wrapFormat)) {
+//                    $stub = $wrapFormat;
+//
+//                    if (strpos($stub, '{class}')) {
+//                        $stub = str_replace('{class}', $wrapClass, $stub);
+//                    }
+//
+//                    if (strpos($stub, '{label}')) {
+//                        $this->labelPosition = 'wrap';
+//                        $stub                = str_replace('{label}', $this->getLabel(true), $stub);
+//                    }
+//
+//                    $stub = str_replace('{input}', $this->getStub(), $stub);
+//                } else {
+//
+//                    if ($this->hasLabel()) {
+//                        $label = str_replace('{input}', $this->getStub(), $this->getLabel(true));
+//
+//                        $stub = str_replace('{input}', $label, "<{$wrapType} {$wrapClass}>{input}</{$wrapType}>");
+//                    } else {
+//                        $stub = "<{$wrapType} {$wrapClass}>{$this->getStub()}</{$wrapType}>";
+//                    }
+//                }
+//            } else {
+//
+//                if ($this->hasLabel()) {
+//
+//                    $stub = str_replace('{input}', $this->getStub(), $this->getLabel(true));
+//                } else {
+//                    $stub = $this->getStub();
+//                }
+//
+//            }
+//        }
+//
+//
+//        foreach ($this->config("slots.{$this->getType()}") as $attribute) {
+//            $function = 'get' . ucfirst($attribute);
+//            $value    = $this->$function(true);
+//
+//            if ($value != '') $value .= ' ';
+//            $stub = str_replace("{{$attribute}}", $value, $stub);
+//        }
+//
+//        return $stub;
+//    }
 
     protected function config($key, $default = null)
     {
@@ -175,10 +175,15 @@ class Input
         }
 
         if ($this->continue) {
-            return $this;
+            return $this->return();
         }
 
         return $this->html();
+    }
+
+    public function return()
+    {
+        return $this;
     }
 
 }

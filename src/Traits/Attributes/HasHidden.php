@@ -37,6 +37,6 @@ trait HasHidden
     {
         $this->hidden = $hidden;
 
-        return $this;
+        return $this->return();
     }
 }

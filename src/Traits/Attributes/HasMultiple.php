@@ -35,6 +35,6 @@ trait HasMultiple
     {
         $this->multiple = true;
 
-        return $this;
+        return $this->return();
     }
 }

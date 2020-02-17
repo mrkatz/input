@@ -40,6 +40,6 @@ trait HasChecked
     {
         $this->checked = $checked;
 
-        return $this;
+        return $this->return();
     }
 }

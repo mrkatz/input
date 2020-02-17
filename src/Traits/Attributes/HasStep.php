@@ -38,6 +38,6 @@ trait HasStep
     {
         $this->step = $step;
 
-        return $this;
+        return $this->return();
     }
 }

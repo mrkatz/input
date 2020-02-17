@@ -40,6 +40,6 @@ trait HasOnClick
     {
         $this->onClick = $onClick;
 
-        return $this;
+        return $this->return();
     }
 }

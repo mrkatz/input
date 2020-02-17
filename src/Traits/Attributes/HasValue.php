@@ -140,7 +140,7 @@ trait HasValue
             $this->value = $value;
         }
 
-        return $this;
+        return $this->return();
     }
 
 }

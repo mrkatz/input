@@ -33,7 +33,7 @@ trait HasDisabled
     {
         $this->disabled = $disabled;
 
-        return $this;
+        return $this->return();
     }
 
 }

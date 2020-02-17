@@ -35,6 +35,6 @@ trait HasWidth
     {
         $this->width = $width;
 
-        return $this;
+        return $this->return();
     }
 }

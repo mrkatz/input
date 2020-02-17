@@ -34,6 +34,6 @@ trait HasSelected
     {
         $this->selected = $selected;
 
-        return $this;
+        return $this->return();
     }
 }

@@ -19,7 +19,7 @@ trait HasID
     {
         $this->id = $id;
 
-        return $this;
+        return $this->return();
     }
 
     public function getFor($html = false)

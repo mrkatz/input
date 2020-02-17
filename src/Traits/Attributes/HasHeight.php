@@ -40,6 +40,6 @@ trait HasHeight
     {
         $this->height = $height;
 
-        return $this;
+        return $this->return();
     }
 }

@@ -42,6 +42,6 @@ trait HasMaxLength
     {
         $this->maxlength = $maxlength;
 
-        return $this;
+        return $this->return();
     }
 }

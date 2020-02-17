@@ -133,6 +133,6 @@ trait HasOptions
             $this->options[$value] = isset($attributes) ? [$text, $attributes] : $text;
         }
 
-        return $this;
+        return $this->return();
     }
 }

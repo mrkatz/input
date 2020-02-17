@@ -17,9 +17,9 @@ trait HasType
     {
         $this->type = $type;
 
-        $this->loadDefaults();
+        $this->typeDefaults();
 
-        return $this;
+        return $this->return();
     }
 
     /**

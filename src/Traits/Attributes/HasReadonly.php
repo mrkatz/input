@@ -43,6 +43,6 @@ trait HasReadonly
     {
         $this->readonly = $readonly;
 
-        return $this;
+        return $this->return();
     }
 }

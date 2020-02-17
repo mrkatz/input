@@ -42,6 +42,6 @@ trait HasMax
     {
         $this->max = $max;
 
-        return $this;
+        return $this->return();
     }
 }

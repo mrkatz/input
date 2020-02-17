@@ -48,7 +48,7 @@ trait HasForm
     {
         $this->form = $form;
 
-        return $this;
+        return $this->return();
     }
 
     /**
@@ -84,7 +84,7 @@ trait HasForm
     {
         $this->formaction = $formaction;
 
-        return $this;
+        return $this->return();
     }
 
     /**
@@ -132,7 +132,7 @@ trait HasForm
                 break;
         }
 
-        return $this;
+        return $this->return();
     }
 
     /**
@@ -176,7 +176,7 @@ trait HasForm
         }
 
 
-        return $this;
+        return $this->return();
     }
 
     /**
@@ -228,7 +228,7 @@ trait HasForm
                 $this->formtarget = $formtarget;
         }
 
-        return $this;
+        return $this->return();
     }
 
     /**
@@ -263,6 +263,6 @@ trait HasForm
     {
         $this->formnovalidate = $formnovalidate;
 
-        return $this;
+        return $this->return();
     }
 }

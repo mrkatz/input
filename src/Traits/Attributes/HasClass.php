@@ -19,7 +19,11 @@ trait HasClass
     public function getClass($html = false)
     {
         if ($html) {
-            return $this->formatClass($this->class);
+            if ($this->hasError()) {
+                return $this->formatClass($this->errorClass);
+            } else {
+                return $this->formatClass($this->class);
+            }
         }
 
         return $this->class;
@@ -33,7 +37,7 @@ trait HasClass
 
             $classes = implode(' ', $class);
         }
-        if ($class == '') return '';
+        if ($class == '' | $class == null) return '';
 
         return "class=\"{$classes}\"";
     }
@@ -42,7 +46,7 @@ trait HasClass
      * @param string|array $class
      * @param bool $replace
      *
-     * @return $this
+     * @return Input|HasClass
      */
     public function class($class, $replace = false)
     {
@@ -57,17 +61,17 @@ trait HasClass
         if ($replace) {
             $this->class = $class;
         } else {
-            $this->class = array_filter(array_merge($this->class, $class));
+            $this->class = array_filter(array_unique(array_merge($this->class, $class)));
         }
 
-        return $this;
+        return $this->return();
     }
 
     /**
      * @param string|array $class
      * @param bool $replace
      *
-     * @return $this
+     * @return Input
      */
     public function errorClass($class, $replace = false)
     {
@@ -82,9 +86,9 @@ trait HasClass
         if ($replace) {
             $this->errorClass = $class;
         } else {
-            $this->errorClass = array_filter(array_merge($this->errorClass, $class));
+            $this->errorClass = array_filter(array_unique(array_merge($this->errorClass, $class)));
         }
 
-        return $this;
+        return $this->return();
     }
 }

@@ -40,6 +40,6 @@ trait HasAlt
     {
         $this->alt = $alt;
 
-        return $this;
+        return $this->return();
     }
 }

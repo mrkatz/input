@@ -42,6 +42,6 @@ trait HasRequired
     {
         $this->required = $required;
 
-        return $this;
+        return $this->return();
     }
 }

@@ -42,7 +42,7 @@ trait HasLabel
             $this->labelPosition = $option2;
         }
 
-        return $this;
+        return $this->return();
     }
 
     /**

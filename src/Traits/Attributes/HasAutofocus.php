@@ -37,6 +37,6 @@ trait HasAutofocus
     {
         $this->autofocus = $autofocus;
 
-        return $this;
+        return $this->return();
     }
 }

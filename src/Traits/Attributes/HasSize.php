@@ -42,6 +42,6 @@ trait HasSize
     {
         $this->size = $size;
 
-        return $this;
+        return $this->return();
     }
 }

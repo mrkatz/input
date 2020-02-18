@@ -49,10 +49,10 @@ class Input
         $this->request   = $request;
         $this->errors    = $this->view->shared('errors');
 
-        $this->traitLoader('constructor_');
+        $this->traitMethodLoader('constructor_');
     }
 
-    protected function traitLoader($methodTag)
+    protected function traitMethodLoader($methodTag)
     {
         $class = static::class;
 

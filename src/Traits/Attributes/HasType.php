@@ -17,7 +17,7 @@ trait HasType
     {
         $this->type = $type;
 
-        $this->typeDefaults();
+        $this->traitLoader('typeUpdate_');
 
         return $this->return();
     }

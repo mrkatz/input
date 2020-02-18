@@ -42,4 +42,10 @@ trait HasErrorHandling
 
         return $this->errors->has($name);
     }
+
+    public function constructor_HasErrorHandling()
+    {
+        $this->errorMessagePosition = $this->config('global.errors');
+    }
+
 }

@@ -16,7 +16,7 @@ use Mrkatz\Input\Traits\HasLabel;
 
 class Input
 {
-    use HasAttributes, HasErrorHandling, HasFormatting, HasInputHelpers, HasLabel, HasDefaults, HasHtml;
+    use HasAttributes, HasErrorHandling, HasFormatting, HasInputHelpers, HasLabel, HasHtml;
 
     /**
      * The session store implementation.
@@ -49,7 +49,24 @@ class Input
         $this->request   = $request;
         $this->errors    = $this->view->shared('errors');
 
-        $this->configDefaults();
+        $this->traitLoader('constructor_');
+    }
+
+    protected function traitLoader($methodTag)
+    {
+        $class = static::class;
+
+        $booted = [];
+
+        foreach (class_uses_recursive($class) as $trait) {
+            $method = $methodTag . class_basename($trait);
+
+            if (method_exists($class, $method) && !in_array($method, $booted)) {
+                forward_static_call([$class, $method]);
+
+                $booted[] = $method;
+            }
+        }
     }
 
     public function __toString()
@@ -57,81 +74,14 @@ class Input
         return $this->html();
     }
 
-//    public function html()
-//    {
-//        $stub = null;
-//        if ($this->config('global.wrap')) {
-//            $stub = $this->config('global.wrap');
-//            if (!in_array($this->config('global.wrap-class'), ['', null])) {
-//                $stub = str_replace("{class}", "class=\"{$this->config('global.wrap-class')}\"", $stub);
-//            } else {
-//                $stub = str_replace("{class}", "", $stub);
-//            }
-//
-//            $stub = str_replace("{input}", $this->getStub(), $stub);
-//        } else {
-//            if (isset($this->wrap['type']) || isset($this->wrap['format'])) {
-//
-//                $wrap       = $this->wrap;
-//                $wrapType   = $wrap['type'];
-//                $wrapClass  = isset($wrap['class']) ? "class=\"{$wrap['class']}\"" : '';
-//                $wrapFormat = $wrap['format'];
-//
-//                if (isset($wrapFormat)) {
-//                    $stub = $wrapFormat;
-//
-//                    if (strpos($stub, '{class}')) {
-//                        $stub = str_replace('{class}', $wrapClass, $stub);
-//                    }
-//
-//                    if (strpos($stub, '{label}')) {
-//                        $this->labelPosition = 'wrap';
-//                        $stub                = str_replace('{label}', $this->getLabel(true), $stub);
-//                    }
-//
-//                    $stub = str_replace('{input}', $this->getStub(), $stub);
-//                } else {
-//
-//                    if ($this->hasLabel()) {
-//                        $label = str_replace('{input}', $this->getStub(), $this->getLabel(true));
-//
-//                        $stub = str_replace('{input}', $label, "<{$wrapType} {$wrapClass}>{input}</{$wrapType}>");
-//                    } else {
-//                        $stub = "<{$wrapType} {$wrapClass}>{$this->getStub()}</{$wrapType}>";
-//                    }
-//                }
-//            } else {
-//
-//                if ($this->hasLabel()) {
-//
-//                    $stub = str_replace('{input}', $this->getStub(), $this->getLabel(true));
-//                } else {
-//                    $stub = $this->getStub();
-//                }
-//
-//            }
-//        }
-//
-//
-//        foreach ($this->config("slots.{$this->getType()}") as $attribute) {
-//            $function = 'get' . ucfirst($attribute);
-//            $value    = $this->$function(true);
-//
-//            if ($value != '') $value .= ' ';
-//            $stub = str_replace("{{$attribute}}", $value, $stub);
-//        }
-//
-//        return $stub;
-//    }
+    public function getStub()
+    {
+        return $this->config("stubs.{$this->getType()}");
+    }
 
     protected function config($key, $default = null)
     {
         return config('input.' . $key, $default);
-    }
-
-    public function getStub()
-    {
-        return $this->config("stubs.{$this->getType()}");
     }
 
     /**

@@ -5,6 +5,9 @@ namespace Mrkatz\Input\Traits;
 
 trait HasHtml
 {
+    /**
+     * @return string
+     */
     public function html()
     {
         $stub = $this->setWrap();

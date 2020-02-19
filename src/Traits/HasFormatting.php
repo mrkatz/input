@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits;
 
 
+use Mrkatz\Input\Input;
+
 trait HasFormatting
 {
     protected $wrap = [
@@ -23,7 +25,7 @@ trait HasFormatting
      * @param null $class // eg. 'form-control'|['form-control]
      * @param null $format
      *
-     * @return $this
+     * @return Input
      */
     public function wrap($type = null, $class = null, $format = null)
     {

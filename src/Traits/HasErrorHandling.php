@@ -4,11 +4,18 @@
 namespace Mrkatz\Input\Traits;
 
 
+use Mrkatz\Input\Input;
+
 trait HasErrorHandling
 {
     public $errors;
     protected $errorMessagePosition;
 
+    /**
+     * @param string $position
+     *
+     * @return Input
+     */
     public function errors($position = 'below')
     {
         $this->errorMessagePosition = $position;

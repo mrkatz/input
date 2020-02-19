@@ -11,7 +11,7 @@ trait HasType
     /**
      * @param mixed $type
      *
-     * @return HasType
+     * @return Input
      */
     public function type($type)
     {

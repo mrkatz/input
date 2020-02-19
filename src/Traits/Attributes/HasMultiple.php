@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasMultiple
 {
     private $multiple;
@@ -29,7 +31,7 @@ trait HasMultiple
     /**
      * @param bool $multiple
      *
-     * @return HasMultiple
+     * @return Input
      */
     public function multiple($multiple = true)
     {

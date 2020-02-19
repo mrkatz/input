@@ -3,6 +3,8 @@
 
 namespace Mrkatz\Input\Traits\Attributes;
 
+use Mrkatz\Input\Input;
+
 trait HasName
 {
     private $name;
@@ -34,7 +36,7 @@ trait HasName
     /**
      * @param mixed $name
      *
-     * @return HasName
+     * @return Input
      */
     public function name($name)
     {

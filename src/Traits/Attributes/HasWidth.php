@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasWidth
 {
     private $width;
@@ -29,7 +31,7 @@ trait HasWidth
     /**
      * @param mixed $width
      *
-     * @return HasWidth
+     * @return Input
      */
     public function width($width)
     {

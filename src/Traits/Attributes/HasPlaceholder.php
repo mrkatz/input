@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasPlaceholder
 {
     private $placeholder;
@@ -34,7 +36,7 @@ trait HasPlaceholder
     /**
      * @param string $placeholder
      *
-     * @return HasPlaceholder
+     * @return Input
      */
     public function placeholder($placeholder)
     {

@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasHidden
 {
     private $hidden;
@@ -31,7 +33,7 @@ trait HasHidden
     /**
      * @param mixed $hidden
      *
-     * @return HasHidden
+     * @return Input
      */
     public function hiddenA($hidden = true)
     {

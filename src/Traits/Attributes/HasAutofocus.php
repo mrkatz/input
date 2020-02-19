@@ -4,15 +4,16 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasAutofocus
 {
     private $autofocus;
 
-
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string|boolean
      */
     public function getAutofocus($html = false)
     {
@@ -31,7 +32,7 @@ trait HasAutofocus
     /**
      * @param mixed $autofocus
      *
-     * @return HasAutofocus
+     * @return Input
      */
     public function autofocus($autofocus = true)
     {

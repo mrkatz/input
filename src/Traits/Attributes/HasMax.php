@@ -36,7 +36,7 @@ trait HasMax
     /**
      * @param $max
      *
-     * @return HasMax
+     * @return Input
      */
     public function max($max)
     {

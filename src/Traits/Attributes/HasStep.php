@@ -32,7 +32,7 @@ trait HasStep
     /**
      * @param mixed $step
      *
-     * @return HasStep
+     * @return Input
      */
     public function step($step)
     {

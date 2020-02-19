@@ -113,7 +113,7 @@ trait HasValue
     /**
      * @param string|Carbon $value
      *
-     * @return $this
+     * @return Input
      */
     public function value($value)
     {

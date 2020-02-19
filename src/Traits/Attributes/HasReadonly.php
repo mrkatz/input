@@ -37,7 +37,7 @@ trait HasReadonly
     /**
      * @param bool $readonly
      *
-     * @return HasReadonly
+     * @return Input
      */
     public function readonly($readonly = true)
     {

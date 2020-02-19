@@ -11,7 +11,7 @@ trait HasAlt
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string|boolean
      */
     public function getAlt($html = false)
     {

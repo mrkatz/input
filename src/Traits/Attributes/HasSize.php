@@ -36,7 +36,7 @@ trait HasSize
     /**
      * @param $size
      *
-     * @return HasSize
+     * @return Input
      */
     public function size($size)
     {

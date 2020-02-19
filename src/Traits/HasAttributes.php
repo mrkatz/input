@@ -2,6 +2,7 @@
 
 namespace Mrkatz\Input\Traits;
 
+use Mrkatz\Input\Input;
 use Mrkatz\Input\Traits\Attributes\HasAlt;
 use Mrkatz\Input\Traits\Attributes\HasAutoComplete;
 use Mrkatz\Input\Traits\Attributes\HasAutofocus;
@@ -41,7 +42,7 @@ trait HasAttributes
     /**
      * @param array|null $attributes
      *
-     * @return HasAttributes
+     * @return Input
      */
     protected function setAttributes($attributes)
     {

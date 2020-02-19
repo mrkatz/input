@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasOnClick
 {
     private $onClick;
@@ -34,7 +36,7 @@ trait HasOnClick
     /**
      * @param mixed $onClick
      *
-     * @return HasOnClick
+     * @return Input
      */
     public function onclick($onClick)
     {

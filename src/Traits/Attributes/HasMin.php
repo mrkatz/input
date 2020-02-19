@@ -32,7 +32,7 @@ trait HasMin
     /**
      * @param mixed $min
      *
-     * @return HasMin
+     * @return Input
      */
     public function min($min)
     {

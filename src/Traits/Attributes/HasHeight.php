@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasHeight
 {
     private $height;
@@ -34,7 +36,7 @@ trait HasHeight
     /**
      * @param mixed $height
      *
-     * @return HasHeight
+     * @return Input
      */
     public function height($height)
     {

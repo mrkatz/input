@@ -36,7 +36,7 @@ trait HasTitle
     /**
      * @param mixed $title
      *
-     * @return HasTitle
+     * @return Input
      */
     public function title($title)
     {

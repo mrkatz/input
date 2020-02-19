@@ -18,7 +18,7 @@ trait HasForm
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string
      */
     public function getForm($html = false)
     {
@@ -42,7 +42,7 @@ trait HasForm
     /**
      * @param string $form
      *
-     * @return HasForm
+     * @return Input
      */
     public function form($form)
     {
@@ -54,7 +54,7 @@ trait HasForm
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string
      */
     public function getFormaction($html = false)
     {
@@ -78,7 +78,7 @@ trait HasForm
     /**
      * @param string $formaction
      *
-     * @return HasForm
+     * @return Input
      */
     public function formaction($formaction)
     {
@@ -90,7 +90,7 @@ trait HasForm
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string
      */
     public function getFormenctype($html = false)
     {
@@ -113,7 +113,7 @@ trait HasForm
     /**
      * @param string $formenctype
      *
-     * @return HasForm
+     * @return Input
      */
     public function formenctype($formenctype = 'default')
     {
@@ -138,7 +138,7 @@ trait HasForm
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string
      */
     public function getFormmethod($html = false)
     {
@@ -162,7 +162,7 @@ trait HasForm
     /**
      * @param string $formmethod
      *
-     * @return HasForm
+     * @return Input
      */
     public function formmethod($formmethod = 'post')
     {
@@ -182,7 +182,7 @@ trait HasForm
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string
      */
     public function getFormtarget($html = false)
     {
@@ -205,7 +205,7 @@ trait HasForm
     /**
      * @param string $formtarget
      *
-     * @return HasForm
+     * @return Input
      */
     public function formtarget($formtarget = 'default')
     {
@@ -234,7 +234,7 @@ trait HasForm
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string
      */
     public function getFormnovalidate($html = false)
     {
@@ -257,7 +257,7 @@ trait HasForm
     /**
      * @param boolean $formnovalidate
      *
-     * @return HasForm
+     * @return Input
      */
     public function formnovalidate($formnovalidate = true)
     {

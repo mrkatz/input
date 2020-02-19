@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasChecked
 {
     private $checked;
@@ -11,7 +13,7 @@ trait HasChecked
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string|boolean
      */
     public function getChecked($html = false)
     {
@@ -34,7 +36,7 @@ trait HasChecked
     /**
      * @param mixed $checked
      *
-     * @return HasChecked
+     * @return Input
      */
     public function checked($checked = true)
     {

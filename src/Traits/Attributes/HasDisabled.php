@@ -2,6 +2,8 @@
 
 namespace Mrkatz\Input\Traits\Attributes;
 
+use Mrkatz\Input\Input;
+
 trait HasDisabled
 {
     private $disabled;
@@ -9,7 +11,7 @@ trait HasDisabled
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string|boolean
      */
     public function getDisabled($html = false)
     {
@@ -27,7 +29,7 @@ trait HasDisabled
     /**
      * @param boolean $disabled
      *
-     * @return HasDisabled
+     * @return Input
      */
     public function disabled($disabled = true)
     {

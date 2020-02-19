@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasOnChange
 {
     private $onChange;
@@ -34,7 +36,7 @@ trait HasOnChange
     /**
      * @param mixed $onChange
      *
-     * @return HasOnChange
+     * @return Input
      */
     public function onchange($onChange)
     {

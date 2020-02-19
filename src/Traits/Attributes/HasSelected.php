@@ -3,6 +3,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasSelected
 {
     private $selected;
@@ -28,7 +30,7 @@ trait HasSelected
     /**
      * @param bool $selected
      *
-     * @return HasSelected
+     * @return Input
      */
     public function selected($selected = true)
     {

@@ -91,7 +91,7 @@ class Input
      * @param array|boolean|null $prop2
      * @param boolean|null $prop3
      *
-     * @return $this|void
+     * @return Input
      */
     protected function filterInputs($type, $name, $prop1 = null, $prop2 = null, $prop3 = null)
     {
@@ -131,6 +131,9 @@ class Input
         return $this->html();
     }
 
+    /**
+     * @return Input
+     */
     public function return()
     {
         return $this;

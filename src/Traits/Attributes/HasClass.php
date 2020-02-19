@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -82,7 +80,7 @@ trait HasClass
      * @param string|array $class
      * @param bool $replace
      *
-     * @return Input
+     * @return Input|HasClass
      */
     public function errorClass($class, $replace = false)
     {

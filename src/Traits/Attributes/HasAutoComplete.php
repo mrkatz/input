@@ -14,7 +14,7 @@ trait HasAutoComplete
     /**
      * @param bool $html
      *
-     * @return mixed
+     * @return string|boolean
      */
     public function getAutoComplete($html = false)
     {
@@ -23,6 +23,7 @@ trait HasAutoComplete
         }
         return $this->autocomplete;
     }
+
 
     public function formatAutoComplete($autoComplete)
     {

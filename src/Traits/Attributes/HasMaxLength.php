@@ -36,7 +36,7 @@ trait HasMaxLength
     /**
      * @param $maxlength
      *
-     * @return HasMaxLength
+     * @return Input
      */
     public function maxlength($maxlength)
     {

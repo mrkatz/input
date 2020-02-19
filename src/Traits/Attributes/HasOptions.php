@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasOptions
 {
     /**
@@ -116,15 +118,22 @@ trait HasOptions
     /**
      * @param array $options
      *
-     * @return HasOptions
+     * @return Input
      */
     public function options($options)
     {
         $this->options = $options;
 
-        return $this;
+        return $this->return();
     }
 
+    /**
+     * @param $value
+     * @param $text
+     * @param null $attributes
+     *
+     * @return Input
+     */
     public function addOption($value, $text, $attributes = null)
     {
         if (is_array($value)) {

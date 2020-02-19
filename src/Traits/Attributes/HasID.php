@@ -3,7 +3,6 @@
 
 namespace Mrkatz\Input\Traits\Attributes;
 
-
 use Mrkatz\Input\Input;
 
 trait HasID
@@ -13,7 +12,7 @@ trait HasID
     /**
      * @param mixed $id
      *
-     * @return HasID
+     * @return Input
      */
     public function id($id)
     {

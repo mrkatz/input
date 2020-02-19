@@ -36,7 +36,7 @@ trait HasRequired
     /**
      * @param boolean $required
      *
-     * @return HasRequired
+     * @return Input
      */
     public function required($required = true)
     {

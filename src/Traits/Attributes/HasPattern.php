@@ -37,7 +37,7 @@ trait HasPattern
     /**
      * @param mixed $pattern
      *
-     * @return HasPattern
+     * @return Input
      */
     public function pattern($pattern)
     {

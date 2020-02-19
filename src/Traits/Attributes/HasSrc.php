@@ -4,6 +4,8 @@
 namespace Mrkatz\Input\Traits\Attributes;
 
 
+use Mrkatz\Input\Input;
+
 trait HasSrc
 {
     private $src;
@@ -36,7 +38,7 @@ trait HasSrc
      *
      * @param bool $asset
      *
-     * @return HasSrc
+     * @return Input
      */
     public function src($src, $asset = false)
     {

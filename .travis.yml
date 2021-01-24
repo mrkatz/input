@@ -6,6 +6,9 @@ php:
 
 sudo: false
 
+-before_install:
+  - travis_retry composer require "laravel/framework" "orchestra/testbench" --no-interaction --no-update
+
 install: travis_retry composer install --no-interaction --prefer-source
 
 script: vendor/bin/phpunit

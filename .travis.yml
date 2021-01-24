@@ -35,7 +35,8 @@
     - travis_retry composer require "laravel/framework:${LARAVEL}" "orchestra/testbench:${TESTBENCH}" --no-interaction --no-update
 
   install:
-    - travis_retry composer install --prefer-dist --no-interaction --no-suggest
+    - npm config set package-lock false
+    - travis_retry composer install --prefer-dist --no-interaction
 
   script:
     - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover

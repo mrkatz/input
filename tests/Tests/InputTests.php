@@ -7,6 +7,7 @@ use Illuminate\Support\MessageBag;
 use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\date;
 use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\text;
 use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\textarea;
+use Mrkatz\Input\Input;
 
 class InputTests extends TestCase
 {
@@ -40,17 +41,17 @@ class InputTests extends TestCase
                 break;
         }
 
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->html();
 
         $this->assertEquals($stub, $input);
 
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name, $value)->html();
 
         $this->assertEquals($stub, $input);
 
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name, ['value' => $value])->html();
 
         $this->assertEquals($stub, $input);
@@ -89,17 +90,17 @@ class InputTests extends TestCase
 
         $stub = "<input name=\"{$name}\" type=\"{$type}\" value=\"{$expected}\" >";
 
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$method}($name)->value($value)->html();
 
         $this->assertEquals($stub, $input);
 
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$method}($name, $value)->html();
 
         $this->assertEquals($stub, $input);
 
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$method}($name, null, ['value' => $value])->html();
 
         $this->assertEquals($stub, $input);
@@ -154,19 +155,19 @@ class InputTests extends TestCase
                     var_dump("{$type} - {$attribute}");
 
                     if ($type !== 'select') {
-                        /** @var \Mrkatz\Input\Input $input */
+                        /** @var Input $input */
                         $input = input()->{$method}($name, [$attribute => $value])->html();
 
                         $this->assertEquals($stub, $input);
                     }
 
 
-                    /** @var \Mrkatz\Input\Input $input */
+                    /** @var Input $input */
                     $input = input()->{$method}($name, null, [$attribute => $value])->html();
 
                     $this->assertEquals($stub, $input);
 
-                    /** @var \Mrkatz\Input\Input $input */
+                    /** @var Input $input */
                     $input = input()->{$method}($name)->$attribute($value)->html();
 
                     $this->assertEquals($stub, $input);
@@ -287,19 +288,19 @@ class InputTests extends TestCase
         }
 
 //wrap type & class
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->wrap('div', 'form-control')->html();
 
         $this->assertEquals("<div class=\"form-control\">{$stub}</div>", $input);
 
 //wrap format
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->wrap(null, null, '<div class="form-control">{input}</div>')->html();
 
         $this->assertEquals("<div class=\"form-control\">{$stub}</div>", $input);
 
 //wrap format & class
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->wrap(null, 'form-control', '<div {class}>{input}</div>')->html();
 
         $this->assertEquals("<div class=\"form-control\">{$stub}</div>", $input);
@@ -340,31 +341,31 @@ class InputTests extends TestCase
         }
 
         //Has Default Label - Above
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->label(true)->html();
 
         $this->assertEquals("<label >{$name}</label>{$stub}", $input);
 
         //Has Label Below
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->label(true, 'below')->html();
 
         $this->assertEquals("{$stub}<label >{$name}</label>", $input);
 
         //Has Label Below with Name
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->label($label, [], 'below')->html();
 
         $this->assertEquals("{$stub}<label >{$label}</label>", $input);
 
         //Has Label Below with Name, id/for Set
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->id($id)->label($label, [], 'below')->html();
 
         $this->assertEquals("{$stub_id}<label for=\"{$id}\">{$label}</label>", $input);
 
         //Has Label inWrap with Name, id/for Set
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->id($id)->label($label, [], 'below')->wrap(null, 'form-group', '<div {class}><div>{label}</div><div>{input}</div></div>')->html();
 
         $this->assertEquals("<div class=\"form-group\"><div><label for=\"{$id}\">{$label}</label></div><div>{$stub_id}</div></div>", $input);
@@ -382,7 +383,7 @@ class InputTests extends TestCase
      */
     public function errors_handling()
     {
-        /** @var \Mrkatz\Input\Input $input */
+        /** @var Input $input */
         $input         = input()->text('adam')->class('goodClass')->errorClass(['ErrorClass']);
         $input->errors = new MessageBag();
         $input->errors->add('adam', 'this is an error');

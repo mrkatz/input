@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasWidth
         if ($html) {
             return isset($this->width) ? "width=\"{$this->width}\"" : '';
         }
+
         return $this->width;
     }
 

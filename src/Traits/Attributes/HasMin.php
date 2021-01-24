@@ -1,15 +1,12 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
 trait HasMin
 {
     private $min;
-
 
     /**
      * @param bool $html
@@ -21,6 +18,7 @@ trait HasMin
         if ($html) {
             return $this->formatMin($this->min);
         }
+
         return $this->min;
     }
 
@@ -37,6 +35,7 @@ trait HasMin
     public function min($min)
     {
         $this->min = $min;
+
         return $this->return();
     }
 }

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasPlaceholder
         if ($html) {
             return $this->formatPlaceholder($this->placeholder);
         }
+
         return $this->placeholder;
     }
 

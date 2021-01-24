@@ -7,7 +7,6 @@ use Illuminate\Contracts\Session\Session;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Mrkatz\Input\Traits\HasAttributes;
-use Mrkatz\Input\Traits\HasDefaults;
 use Mrkatz\Input\Traits\HasErrorHandling;
 use Mrkatz\Input\Traits\HasFormatting;
 use Mrkatz\Input\Traits\HasHtml;
@@ -44,10 +43,10 @@ class Input
      */
     public function __construct(Factory $view, $csrfToken, Request $request)
     {
-        $this->view      = $view;
+        $this->view = $view;
         $this->csrfToken = $csrfToken;
-        $this->request   = $request;
-        $this->errors    = $this->view->shared('errors');
+        $this->request = $request;
+        $this->errors = $this->view->shared('errors');
 
         $this->traitMethodLoader('constructor_');
     }
@@ -59,9 +58,9 @@ class Input
         $booted = [];
 
         foreach (class_uses_recursive($class) as $trait) {
-            $method = $methodTag . class_basename($trait);
+            $method = $methodTag.class_basename($trait);
 
-            if (method_exists($class, $method) && !in_array($method, $booted)) {
+            if (method_exists($class, $method) && ! in_array($method, $booted)) {
                 forward_static_call([$class, $method]);
 
                 $booted[] = $method;
@@ -81,15 +80,15 @@ class Input
 
     protected function config($key, $default = null)
     {
-        return config('input.' . $key, $default);
+        return config('input.'.$key, $default);
     }
 
     /**
      * @param string $type
      * @param string $name
-     * @param string|integer|array|null $prop1
-     * @param array|boolean|null $prop2
-     * @param boolean|null $prop3
+     * @param string|int|array|null $prop1
+     * @param array|bool|null $prop2
+     * @param bool|null $prop3
      *
      * @return Input
      */
@@ -138,5 +137,4 @@ class Input
     {
         return $this;
     }
-
 }

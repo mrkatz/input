@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -37,7 +35,7 @@ trait HasOptions
             }
 
             if ($this->getPlaceholder() != null) {
-                $props  = [
+                $props = [
                     'text'     => $this->getPlaceholder(),
                     'disabled' => $this->formatDisabled(true),
                     'hidden'   => $this->formatHidden(true),
@@ -46,16 +44,20 @@ trait HasOptions
                 $result .= $this->formatOption($props);
             }
 
-            if (!isset($this->options)) return $result;
-
+            if (! isset($this->options)) {
+                return $result;
+            }
 
             foreach ($this->options as $key => $props) {
-
-                $option = ['value' => $this->formatValue($key),];
+                $option = ['value' => $this->formatValue($key)];
                 if (is_array($props)) {
                     $option['text'] = $props[0];
-                    if (isset($props[1]['disabled'])) $option['disabled'] = $this->formatDisabled($props[1]['disabled']);
-                    if (isset($props[1]['hidden'])) $option['hidden'] = $this->formatHidden($props[1]['hidden']);
+                    if (isset($props[1]['disabled'])) {
+                        $option['disabled'] = $this->formatDisabled($props[1]['disabled']);
+                    }
+                    if (isset($props[1]['hidden'])) {
+                        $option['hidden'] = $this->formatHidden($props[1]['hidden']);
+                    }
 
                     if (is_array($selected)) {
                         dd('yes1');
@@ -66,7 +68,6 @@ trait HasOptions
                             $option['selected'] = $this->formatSelected($props[1]['selected']);
                         }
                     }
-
                 } else {
                     $option['text'] = $props;
                     if (is_array($selected)) {
@@ -76,15 +77,14 @@ trait HasOptions
                     } else {
                         $option['selected'] = $this->formatSelected($selected == $key);
                     }
-
                 }
 
                 $result .= $this->formatOption($option);
             }
 
             return $result;
-
         }
+
         return $this->options;
     }
 
@@ -112,6 +112,7 @@ trait HasOptions
         foreach ($props as $prop => $value) {
             $stub = $value == '' ? str_replace("{{$prop}}", "{$value}", $stub) : str_replace("{{$prop}}", "{$value} ", $stub);
         }
+
         return $stub;
     }
 

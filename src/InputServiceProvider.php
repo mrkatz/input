@@ -33,8 +33,8 @@ class InputServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-                             __DIR__ . '/../config/input.php' => config_path('input.php'),
-                         ], 'input.config');
+            __DIR__.'/../config/input.php' => config_path('input.php'),
+        ], 'input.config');
 
         // Publishing the views.
         /*$this->publishes([
@@ -62,7 +62,7 @@ class InputServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/input.php', 'input');
+        $this->mergeConfigFrom(__DIR__.'/../config/input.php', 'input');
 
         // Register the service the package provides.
         $this->app->bind('Input', function ($app) {

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
 
 use Mrkatz\Input\Input;
@@ -26,6 +25,7 @@ trait HasID
         if ($html) {
             return $this->formatFor($this->id);
         }
+
         return $this->getId();
     }
 
@@ -44,6 +44,7 @@ trait HasID
         if ($html) {
             return $this->formatId($this->id);
         }
+
         return $this->id;
     }
 

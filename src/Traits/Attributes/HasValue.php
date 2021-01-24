@@ -1,18 +1,13 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
 
-
-use Arr;
 use Carbon\Carbon;
-use DateTime;
 use Mrkatz\Input\Input;
 
 trait HasValue
 {
     private $value;
-
 
     /**
      * @param bool $html
@@ -26,12 +21,13 @@ trait HasValue
         if ($html && $value != '') {
             return $this->formatValue($value, $this->getType());
         }
+
         return $this->value;
     }
 
     protected function getValueAttribute()
     {
-        $name  = $this->getName();
+        $name = $this->getName();
         $value = $this->value;
 
         if (is_null($name)) {
@@ -40,22 +36,22 @@ trait HasValue
 
         $old = $this->getOldValue();
 
-        if (!is_null($old) && $name !== '_method') {
+        if (! is_null($old) && $name !== '_method') {
             return $old;
         }
 
         $request = $this->request($name);
-        if (!is_null($request) && $name != '_method') {
+        if (! is_null($request) && $name != '_method') {
             return $request;
         }
 
-        if (!is_null($value)) {
+        if (! is_null($value)) {
             return $value;
         }
     }
 
     /**
-     * Return Old Value
+     * Return Old Value.
      *
      * @return mixed
      */
@@ -65,7 +61,7 @@ trait HasValue
     }
 
     /**
-     * Get value from current Request
+     * Get value from current Request.
      *
      * @param $name
      *
@@ -73,7 +69,7 @@ trait HasValue
      */
     protected function request($name)
     {
-        if (!isset($this->request)) {
+        if (! isset($this->request)) {
             return null;
         }
 
@@ -94,7 +90,9 @@ trait HasValue
 
     public function formatValue($value, $type = 'default')
     {
-        if (!isset($value)) return '';
+        if (! isset($value)) {
+            return '';
+        }
 
         switch ($type) {
             default:
@@ -135,12 +133,10 @@ trait HasValue
                     $this->value = $value->toTimeString();
                     break;
             }
-
         } else {
             $this->value = $value;
         }
 
         return $this->return();
     }
-
 }

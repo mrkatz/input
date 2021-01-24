@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -10,36 +8,36 @@ trait HasAutoComplete
 {
     private $autocomplete;
 
-
     /**
      * @param bool $html
      *
-     * @return string|boolean
+     * @return string|bool
      */
     public function getAutoComplete($html = false)
     {
         if ($html) {
             return $this->formatAutoComplete($this->autocomplete);
         }
+
         return $this->autocomplete;
     }
 
-
     public function formatAutoComplete($autoComplete)
     {
-        if (!isset($autoComplete)) return '';
+        if (! isset($autoComplete)) {
+            return '';
+        }
 
         if (in_array($autoComplete, ['on', true, 'yes'])) {
-            return "autocomplete=\"on\"";
+            return 'autocomplete="on"';
         }
 
         if (in_array($autoComplete, ['off', false, 'no'])) {
-            return "autocomplete=\"off\"";
+            return 'autocomplete="off"';
         }
 
         return '';
     }
-
 
     /**
      * @param bool $autocomplete

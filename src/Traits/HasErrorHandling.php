@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits;
-
 
 use Mrkatz\Input\Input;
 
@@ -25,12 +23,17 @@ trait HasErrorHandling
 
     public function formatError($errorMessage = null, $name = null)
     {
-        if ($errorMessage == null) $errorMessage = $this->getErrorMessage();
-        if ($name == null) $name = $this->getName();
+        if ($errorMessage == null) {
+            $errorMessage = $this->getErrorMessage();
+        }
+        if ($name == null) {
+            $name = $this->getName();
+        }
 
         if ($this->hasError($this->getName())) {
             return str_replace('{message}', $errorMessage, $this->config('stubs.error'));
         }
+
         return '';
     }
 
@@ -41,7 +44,9 @@ trait HasErrorHandling
 
     public function hasError($name = null)
     {
-        if ($this->errors == null) return false;
+        if ($this->errors == null) {
+            return false;
+        }
 
         if ($name == null) {
             return $this->errors->any();
@@ -54,5 +59,4 @@ trait HasErrorHandling
     {
         $this->errorMessagePosition = $this->config('global.errors');
     }
-
 }

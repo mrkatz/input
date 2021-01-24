@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasTitle
         if ($html) {
             return $this->formatTitle($this->title);
         }
+
         return $this->title;
     }
 

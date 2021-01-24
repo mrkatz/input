@@ -15,16 +15,17 @@ class InputTests extends TestCase
 {
     /**
      * Load package service provider
-     * @param  \Illuminate\Foundation\Application $app
+     * @param \Illuminate\Foundation\Application $app
      * @return InputServiceProvider
      */
     protected function getPackageProviders($app)
     {
         return [InputServiceProvider::class];
     }
+
     /**
      * Load package alias
-     * @param  \Illuminate\Foundation\Application $app
+     * @param \Illuminate\Foundation\Application $app
      * @return array
      */
     protected function getPackageAliases($app)
@@ -42,9 +43,9 @@ class InputTests extends TestCase
      */
     public function it_can_set_a_value_on_basic_input($type)
     {
-        $name  = 'test123';
+        $name = 'test123';
         $value = 'testValue';
-        $stub  = null;
+        $stub = null;
 
         switch ($type) {
             default:
@@ -86,11 +87,11 @@ class InputTests extends TestCase
      */
     public function it_can_set_a_value_on_date_inputs($type)
     {
-        $name  = 'test123';
+        $name = 'test123';
         $value = Carbon::parse('2020-02-25');
 
         $expected = null;
-        $method   = $type;
+        $method = $type;
 
         switch ($type) {
             case 'date':
@@ -106,12 +107,8 @@ class InputTests extends TestCase
                 $expected = $value->toTimeString();
                 break;
             case 'datetime-local':
-                $method   = 'datetime';
-                if (method_exists($value,"toDateTimeLocalString")) {
-                    $expected = $value->toDateTimeLocalString();
-                }else{
-                    $expected = $value->toDateTimeString();
-                }
+                $method = 'datetime';
+                $expected = $value->toDateTimeLocalString();
 
                 break;
         }
@@ -147,7 +144,7 @@ class InputTests extends TestCase
      */
     public function it_can_set_attributes($attribute, $value, $expected)
     {
-        $name  = 'test123';
+        $name = 'test123';
         $types = config('input.slots');
 
         foreach ($types as $type => $atts) {
@@ -156,7 +153,7 @@ class InputTests extends TestCase
 
                 if (in_array($attribute, $atts)) {
                     $method = $type;
-                    $stub   = null;
+                    $stub = null;
 
                     switch ($type) {
                         default:
@@ -166,7 +163,7 @@ class InputTests extends TestCase
                             $stub = "<textarea name=\"{$name}\" $expected></textarea>";
                             break;
                         case 'datetime-local':
-                            $stub   = "<input name=\"{$name}\" type=\"{$type}\" $expected>";
+                            $stub = "<input name=\"{$name}\" type=\"{$type}\" $expected>";
                             $method = 'datetime';
                             break;
                         case 'button':
@@ -210,80 +207,80 @@ class InputTests extends TestCase
      */
     public function it_can_generate_select_inputs()
     {
-        $name  = '123456';
+        $name = '123456';
         $value = 'val1';
-        $text  = 'selectMe1';
+        $text = 'selectMe1';
 
         //options as $key [$val,[$attributes]]
         $options = [$value => [$text, ['selected' => true]]];
-        $stub    = "<select name=\"{$name}\" ><option value=\"{$value}\" selected >{$text} </option> </select>";
-        $input   = input()->select($name, $options)->html();
+        $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" selected >{$text} </option> </select>";
+        $input = input()->select($name, $options)->html();
         $this->assertEquals($stub, $input);
 
         //options as $key [$val,[disabled]]
         $options = [$value => [$text, ['disabled' => true]]];
-        $stub    = "<select name=\"{$name}\" ><option value=\"{$value}\" disabled >{$text} </option> </select>";
-        $input   = input()->select($name, $options)->html();
+        $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" disabled >{$text} </option> </select>";
+        $input = input()->select($name, $options)->html();
         $this->assertEquals($stub, $input);
 
         //options as $key [$val,[$attributes = false]]
         $options = [$value => [$text, ['selected' => false]]];
-        $stub    = "<select name=\"{$name}\" ><option value=\"{$value}\" >{$text} </option> </select>";
-        $input   = input()->select($name, $options)->html();
+        $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" >{$text} </option> </select>";
+        $input = input()->select($name, $options)->html();
         $this->assertEquals($stub, $input);
 
         //Options as $key [$val]
         $options = [$value => [$text]];
-        $stub    = "<select name=\"{$name}\" ><option value=\"{$value}\" >{$text} </option> </select>";
-        $input   = input()->select($name, $options)->html();
+        $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" >{$text} </option> </select>";
+        $input = input()->select($name, $options)->html();
         $this->assertEquals($stub, $input);
 
         //Options as key => val
         $options = [$value => $text];
-        $stub    = "<select name=\"{$name}\" ><option value=\"{$value}\" >{$text} </option> </select>";
-        $input   = input()->select($name, $options)->html();
+        $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" >{$text} </option> </select>";
+        $input = input()->select($name, $options)->html();
         $this->assertEquals($stub, $input);
 
         //Options as key => val & add Additional Option
         $options = [$value => $text];
-        $stub    = "<select name=\"{$name}\" ><option value=\"{$value}\" >{$text} </option><option value=\"hello\" >someone </option> </select>";
-        $input   = input()->select($name, $options)->addOption('hello', 'someone')->html();
+        $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" >{$text} </option><option value=\"hello\" >someone </option> </select>";
+        $input = input()->select($name, $options)->addOption('hello', 'someone')->html();
         $this->assertEquals($stub, $input);
 
         //Set Value
         $options = [$value => $text];
-        $stub    = "<select name=\"{$name}\" ><option value=\"{$value}\" selected >{$text} </option> </select>";
-        $input   = input()->select($name, $options)->value($value)->html();
+        $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" selected >{$text} </option> </select>";
+        $input = input()->select($name, $options)->value($value)->html();
         $this->assertEquals($stub, $input);
 
         //2 options & value
         $options = [$value => $text, "val-2" => "val-2-label"];
-        $stub    = "<select name=\"{$name}\" ><option value=\"{$value}\" selected >{$text} </option><option value=\"val-2\" >val-2-label </option> </select>";
-        $input   = input()->select($name, $options)->value($value)->html();
+        $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" selected >{$text} </option><option value=\"val-2\" >val-2-label </option> </select>";
+        $input = input()->select($name, $options)->value($value)->html();
         $this->assertEquals($stub, $input);
 
         //add Options & Set Value
         $options = [$value => $text];
-        $stub    = "<select name=\"{$name}\" ><option value=\"{$value}\" selected >{$text} </option> </select>";
-        $input   = input()->select($name)->options($options)->value($value)->html();
+        $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" selected >{$text} </option> </select>";
+        $input = input()->select($name)->options($options)->value($value)->html();
         $this->assertEquals($stub, $input);
 
         //placeholder
         $options = [$value => $text];
-        $stub    = "<select name=\"{$name}\" ><option selected disabled hidden >placeholder </option><option value=\"{$value}\" >{$text} </option> </select>";
-        $input   = input()->select($name, $options)->placeholder('placeholder')->html();
+        $stub = "<select name=\"{$name}\" ><option selected disabled hidden >placeholder </option><option value=\"{$value}\" >{$text} </option> </select>";
+        $input = input()->select($name, $options)->placeholder('placeholder')->html();
         $this->assertEquals($stub, $input);
 
         //multiple selected values
         $options = [$value => $text, "val-2" => "val-2-label"];
-        $stub    = "<select name=\"{$name}[]\" multiple ><option value=\"{$value}\" selected >{$text} </option><option value=\"val-2\" selected >val-2-label </option> </select>";
-        $input   = input()->select($name, $options)->multiple()->value([$value, "val-2"])->html();
+        $stub = "<select name=\"{$name}[]\" multiple ><option value=\"{$value}\" selected >{$text} </option><option value=\"val-2\" selected >val-2-label </option> </select>";
+        $input = input()->select($name, $options)->multiple()->value([$value, "val-2"])->html();
         $this->assertEquals($stub, $input);
 
         //multiple selected values
         $options = [$value => [$text, ['selected' => true]], "val-2" => ["val-2-label", ['selected' => true]]];
-        $stub    = "<select name=\"{$name}[]\" multiple ><option value=\"{$value}\" selected >{$text} </option><option value=\"val-2\" selected >val-2-label </option> </select>";
-        $input   = input()->select($name, $options)->multiple()->html();
+        $stub = "<select name=\"{$name}[]\" multiple ><option value=\"{$value}\" selected >{$text} </option><option value=\"val-2\" selected >val-2-label </option> </select>";
+        $input = input()->select($name, $options)->multiple()->html();
         $this->assertEquals($stub, $input);
     }
 
@@ -293,9 +290,9 @@ class InputTests extends TestCase
      */
     public function it_can_wrap_a_input_in_a_div_with_class($type)
     {
-        $name  = 'test123';
+        $name = 'test123';
         $value = 'testValue';
-        $stub  = null;
+        $stub = null;
 
         switch ($type) {
             default:
@@ -340,30 +337,30 @@ class InputTests extends TestCase
      */
     public function it_can_show_a_label($type)
     {
-        $name  = 'test123';
+        $name = 'test123';
         $value = 'testValue';
         $label = 'Input1';
-        $stub  = null;
-        $id    = 'testID1';
+        $stub = null;
+        $id = 'testID1';
 
         switch ($type) {
             default:
-                $stub    = "<input name=\"{$name}\" type=\"{$type}\" value=\"{$value}\" >";
+                $stub = "<input name=\"{$name}\" type=\"{$type}\" value=\"{$value}\" >";
                 $stub_id = "<input name=\"{$name}\" type=\"{$type}\" id=\"{$id}\" value=\"{$value}\" >";
                 break;
             case 'submit':
             case 'reset':
-                $stub    = "<button name=\"{$name}\" type=\"{$type}\" >{$value} </button>";
+                $stub = "<button name=\"{$name}\" type=\"{$type}\" >{$value} </button>";
                 $stub_id = "<button name=\"{$name}\" type=\"{$type}\" id=\"{$id}\" >{$value} </button>";
                 break;
             //Password ignores Value
             case 'password':
             case 'image':
-                $stub    = "<input name=\"{$name}\" type=\"{$type}\" >";
+                $stub = "<input name=\"{$name}\" type=\"{$type}\" >";
                 $stub_id = "<input name=\"{$name}\" type=\"{$type}\" id=\"{$id}\" >";
                 break;
             case 'textarea':
-                $stub    = "<textarea name=\"{$name}\" >{$value} </textarea>";
+                $stub = "<textarea name=\"{$name}\" >{$value} </textarea>";
                 $stub_id = "<textarea name=\"{$name}\" id=\"{$id}\" >{$value} </textarea>";
                 break;
         }
@@ -412,11 +409,11 @@ class InputTests extends TestCase
     public function errors_handling()
     {
         /** @var Input $input */
-        $input         = input()->text('adam')->class('goodClass')->errorClass(['ErrorClass']);
+        $input = input()->text('adam')->class('goodClass')->errorClass(['ErrorClass']);
         $input->errors = new MessageBag();
         $input->errors->add('adam', 'this is an error');
 
-        $error     = "<div class=\"invalid-feedback\">this is an error</div>";
+        $error = "<div class=\"invalid-feedback\">this is an error</div>";
         $inputHtml = "<input name=\"adam\" type=\"text\" class=\"ErrorClass\" >";
 
         $this->assertEquals("{$inputHtml}{$error}", $input->html());
@@ -426,7 +423,7 @@ class InputTests extends TestCase
         $this->assertEquals("{$error}{$inputHtml}", $input->errors('above')->html());
 
         $this->assertEquals("<div>{$inputHtml}</div><span class=\"span-out\">{$error}</span>",
-                            $input->wrap(null, ['span-out'], '<div>{input}</div><span {class}>{error}</span>')->html());
+            $input->wrap(null, ['span-out'], '<div>{input}</div><span {class}>{error}</span>')->html());
 
     }
 

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
 
 use Mrkatz\Input\Input;
@@ -17,8 +16,9 @@ trait HasName
     public function getName($html = false)
     {
         if ($html) {
-            return $this->formatName($this->name,$this->getMultiple());
+            return $this->formatName($this->name, $this->getMultiple());
         }
+
         return $this->name;
     }
 
@@ -29,7 +29,10 @@ trait HasName
      */
     public function formatName($name, $multiple = false)
     {
-        if ($multiple) return "name=\"{$name}[]\"";
+        if ($multiple) {
+            return "name=\"{$name}[]\"";
+        }
+
         return "name=\"{$name}\"";
     }
 

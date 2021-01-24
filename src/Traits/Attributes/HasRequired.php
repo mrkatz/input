@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasRequired
         if ($html) {
             return $this->formatRequired($this->required);
         }
+
         return $this->required;
     }
 
@@ -34,7 +33,7 @@ trait HasRequired
     }
 
     /**
-     * @param boolean $required
+     * @param bool $required
      *
      * @return Input
      */

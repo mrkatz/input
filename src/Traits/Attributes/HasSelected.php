@@ -2,7 +2,6 @@
 
 namespace Mrkatz\Input\Traits\Attributes;
 
-
 use Mrkatz\Input\Input;
 
 trait HasSelected
@@ -19,6 +18,7 @@ trait HasSelected
         if ($html) {
             return $this->formatSelected($this->selected);
         }
+
         return $this->selected;
     }
 

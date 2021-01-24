@@ -11,13 +11,14 @@ trait HasDisabled
     /**
      * @param bool $html
      *
-     * @return string|boolean
+     * @return string|bool
      */
     public function getDisabled($html = false)
     {
         if ($html) {
             return $this->formatDisabled($this->disabled);
         }
+
         return $this->disabled;
     }
 
@@ -27,7 +28,7 @@ trait HasDisabled
     }
 
     /**
-     * @param boolean $disabled
+     * @param bool $disabled
      *
      * @return Input
      */
@@ -37,5 +38,4 @@ trait HasDisabled
 
         return $this->return();
     }
-
 }

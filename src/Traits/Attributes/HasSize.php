@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasSize
         if ($html) {
             return $this->formatSize($this->size);
         }
+
         return $this->size;
     }
 

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 trait HasAlt
 {
@@ -11,13 +9,14 @@ trait HasAlt
     /**
      * @param bool $html
      *
-     * @return string|boolean
+     * @return string|bool
      */
     public function getAlt($html = false)
     {
         if ($html) {
             return $this->formatAlt($this->alt);
         }
+
         return $this->alt;
     }
 

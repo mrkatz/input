@@ -2,7 +2,7 @@
 
 if (! function_exists('input')) {
     /**
-     * new input
+     * new input.
      *
      *
      * @return \Mrkatz\Input\Input

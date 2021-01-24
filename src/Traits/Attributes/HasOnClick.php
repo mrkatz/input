@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasOnClick
         if ($html) {
             return $this->formatOnClick($this->onClick);
         }
+
         return $this->onClick;
     }
 

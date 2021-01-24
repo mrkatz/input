@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasStep
         if ($html) {
             return $this->formatStep($this->step);
         }
+
         return $this->step;
     }
 
@@ -27,7 +26,6 @@ trait HasStep
     {
         return isset($step) ? "step=\"{$step}\"" : '';
     }
-
 
     /**
      * @param mixed $step

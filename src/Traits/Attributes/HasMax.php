@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasMax
         if ($html && $this->max != null) {
             return $this->formatMax($this->max);
         }
+
         return $this->max;
     }
 

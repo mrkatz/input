@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasSrc
         if ($html) {
             return $this->formatSrc($this->src);
         }
+
         return $this->src;
     }
 

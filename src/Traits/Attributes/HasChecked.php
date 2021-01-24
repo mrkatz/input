@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -13,13 +11,14 @@ trait HasChecked
     /**
      * @param bool $html
      *
-     * @return string|boolean
+     * @return string|bool
      */
     public function getChecked($html = false)
     {
         if ($html) {
             return $this->formatChecked($this->checked);
         }
+
         return $this->checked;
     }
 

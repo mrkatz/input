@@ -1,13 +1,12 @@
 <?php
 
-namespace Tests\Unit;
+namespace Tests;
 
 use Carbon\Carbon;
 use Illuminate\Support\MessageBag;
 use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\date;
 use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\text;
 use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\textarea;
-use Tests\TestCase;
 
 class InputTests extends TestCase
 {

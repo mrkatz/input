@@ -21,8 +21,6 @@
         env: LARAVEL='7.*' 'TESTBENCH='5.*'
       - php: 7.3
         env: LARAVEL='8.*' 'TESTBENCH='6.*'
-      - php: 8
-        env: LARAVEL='8.*' 'TESTBENCH='6.*'
 
     fast_finish: true
 
@@ -37,6 +35,7 @@
   install:
     - npm config set package-lock false
     - travis_retry composer install --prefer-dist --no-interaction
+    - travis_retry composer update
 
   script:
     - vendor/bin/phpunit --coverage-text --coverage-clover=coverage.clover

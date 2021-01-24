@@ -8,9 +8,32 @@ use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\date;
 use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\text;
 use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\textarea;
 use Mrkatz\Input\Input;
+use Mrkatz\Input\InputServiceProvider;
+use Orchestra\Testbench\TestCase;
 
 class InputTests extends TestCase
 {
+    /**
+     * Load package service provider
+     * @param  \Illuminate\Foundation\Application $app
+     * @return InputServiceProvider
+     */
+    protected function getPackageProviders($app)
+    {
+        return [InputServiceProvider::class];
+    }
+    /**
+     * Load package alias
+     * @param  \Illuminate\Foundation\Application $app
+     * @return array
+     */
+    protected function getPackageAliases($app)
+    {
+        return [
+            'Input' => \Mrkatz\Input\Facades\Input::class,
+        ];
+    }
+
     #region Input Value Tests
 
     /**
@@ -84,7 +107,12 @@ class InputTests extends TestCase
                 break;
             case 'datetime-local':
                 $method   = 'datetime';
-                $expected = $value->toDateTimeLocalString();
+                if (method_exists($value,"toDateTimeLocalString")) {
+                    $expected = $value->toDateTimeLocalString();
+                }else{
+                    $expected = $value->toDateTimeString();
+                }
+
                 break;
         }
 
@@ -152,7 +180,7 @@ class InputTests extends TestCase
 
                     }
 
-                    var_dump("{$type} - {$attribute}");
+//                    var_dump("{$type} - {$attribute}");
 
                     if ($type !== 'select') {
                         /** @var Input $input */

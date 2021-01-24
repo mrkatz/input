@@ -87,10 +87,10 @@ MIT. Please see the [license file](license.md) for more information.
 [ico-version]: https://img.shields.io/packagist/v/mrkatz/input.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/mrkatz/input.svg?style=flat-square
 [ico-travis]: https://img.shields.io/travis/mrkatz/input/master.svg?style=flat-square
-[ico-styleci]: https://styleci.io/repos/12345678/shield
+[ico-styleci]: https://styleci.io/repos/240668095/shield
 
 [link-packagist]: https://packagist.org/packages/mrkatz/input
 [link-downloads]: https://packagist.org/packages/mrkatz/input
 [link-travis]: https://travis-ci.org/mrkatz/input
-[link-styleci]: https://styleci.io/repos/12345678
+[link-styleci]: https://github.styleci.io/repos/240668095
 [link-author]: https://github.com/mrkatz

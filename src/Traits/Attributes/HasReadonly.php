@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 

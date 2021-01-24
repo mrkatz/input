@@ -7,8 +7,7 @@ return [
         |--------------------------------------------------------------------------
         */
     'global' => [
-        'errors' => 'bottom' //null, top, bottom, wrap
-
+        'errors' => 'bottom', //null, top, bottom, wrap
 
     ],
 
@@ -51,7 +50,6 @@ return [
 
         'error' => '<div class="invalid-feedback">{message}</div>',
 
-
     ],
 
     /*
@@ -61,34 +59,33 @@ return [
 */
     'slots'  => [
         'label'          => ['class', 'title', 'onclick', 'value', 'for'],
-        'button'         => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'formaction', 'formenctype', 'formmethod', 'formnovalidate', 'formtarget', 'maxlength', 'onchange', 'onclick', 'readonly', 'size',],
-        'checkbox'       => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'checked', 'disabled', 'onchange', 'onclick', 'readonly', 'required', 'size',],
-        'color'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'onchange', 'onclick', 'readonly', 'size',],
-        'date'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step',],
-        'datetime-local' => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step',],
-        'email'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'multiple', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size',],
-        'file'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'maxlength', 'multiple', 'onchange', 'onclick', 'readonly', 'required', 'size',],
-        'hidden'         => ['name', 'type', 'id', 'value', 'form', 'autofocus', 'onchange', 'readonly',],
-        'image'          => ['name', 'type', 'id', 'class', 'title', 'src', 'form', 'alt', 'autofocus', 'hidden', 'disabled', 'formaction', 'formenctype', 'formmethod', 'formtarget', 'height', 'maxlength', 'onchange', 'onclick', 'readonly', 'size', 'width',],
-        'month'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step',],
-        'number'         => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step',],
-        'password'       => ['name', 'type', 'id', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size',],
-        'radio'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'readonly', 'required', 'size',],
-        'range'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'readonly', 'size', 'step',],
-        'reset'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'readonly', 'size',],
-        'search'         => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size',],
-        'submit'         => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'formaction', 'formenctype', 'formmethod', 'formnovalidate', 'formtarget', 'maxlength', 'onchange', 'onclick', 'readonly', 'size',],
-        'tel'            => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size',],
-        'text'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size',],
-        'textarea'       => ['name', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size',],
-        'time'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step',],
-        'url'            => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size',],
-        'week'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step',],
+        'button'         => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'formaction', 'formenctype', 'formmethod', 'formnovalidate', 'formtarget', 'maxlength', 'onchange', 'onclick', 'readonly', 'size'],
+        'checkbox'       => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'checked', 'disabled', 'onchange', 'onclick', 'readonly', 'required', 'size'],
+        'color'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'onchange', 'onclick', 'readonly', 'size'],
+        'date'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step'],
+        'datetime-local' => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step'],
+        'email'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'multiple', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size'],
+        'file'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'maxlength', 'multiple', 'onchange', 'onclick', 'readonly', 'required', 'size'],
+        'hidden'         => ['name', 'type', 'id', 'value', 'form', 'autofocus', 'onchange', 'readonly'],
+        'image'          => ['name', 'type', 'id', 'class', 'title', 'src', 'form', 'alt', 'autofocus', 'hidden', 'disabled', 'formaction', 'formenctype', 'formmethod', 'formtarget', 'height', 'maxlength', 'onchange', 'onclick', 'readonly', 'size', 'width'],
+        'month'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step'],
+        'number'         => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step'],
+        'password'       => ['name', 'type', 'id', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size'],
+        'radio'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'readonly', 'required', 'size'],
+        'range'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'readonly', 'size', 'step'],
+        'reset'          => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'readonly', 'size'],
+        'search'         => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size'],
+        'submit'         => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'formaction', 'formenctype', 'formmethod', 'formnovalidate', 'formtarget', 'maxlength', 'onchange', 'onclick', 'readonly', 'size'],
+        'tel'            => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size'],
+        'text'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size'],
+        'textarea'       => ['name', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size'],
+        'time'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step'],
+        'url'            => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'maxlength', 'onchange', 'onclick', 'pattern', 'placeholder', 'readonly', 'required', 'size'],
+        'week'           => ['name', 'type', 'id', 'value', 'class', 'title', 'form', 'autocomplete', 'autofocus', 'hidden', 'disabled', 'max', 'maxlength', 'min', 'onchange', 'onclick', 'placeholder', 'readonly', 'required', 'size', 'step'],
         'select'         => ['name', 'id', 'class', 'title', 'form', 'size', 'multiple', 'onchange', 'onclick', 'autofocus', 'hidden', 'disabled', 'required', 'options'],
         'option'         => ['value', 'selected', 'disabled', 'onclick', 'text', 'hidden'],
 
     ],
-
 
     /*
     |--------------------------------------------------------------------------

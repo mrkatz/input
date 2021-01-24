@@ -31,11 +31,15 @@ trait HasClass
     {
         $classes = $class;
         if (is_array($class)) {
-            if (count($class) == 0) return '';
+            if (count($class) == 0) {
+                return '';
+            }
 
             $classes = implode(' ', $class);
         }
-        if ($class == '' | $class == null) return '';
+        if ($class == '' | $class == null) {
+            return '';
+        }
 
         return "class=\"{$classes}\"";
     }
@@ -43,11 +47,11 @@ trait HasClass
     public function typeUpdate_HasClass()
     {
         if (count($this->class) == 0) {
-            $this->class($this->config("{$this->getType()}.class", $this->config("default.class")));
+            $this->class($this->config("{$this->getType()}.class", $this->config('default.class')));
         }
 
         if (count($this->errorClass) == 0) {
-            $this->errorClass($this->config("{$this->getType()}.errorClass", $this->config("default.errorClass")));
+            $this->errorClass($this->config("{$this->getType()}.errorClass", $this->config('default.errorClass')));
         }
     }
 

@@ -1,15 +1,12 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
 trait HasHidden
 {
     private $hidden;
-
 
     /**
      * @param bool $html
@@ -21,6 +18,7 @@ trait HasHidden
         if ($html) {
             return $this->formatHidden($this->hidden);
         }
+
         return $this->hidden;
     }
 
@@ -28,7 +26,6 @@ trait HasHidden
     {
         return $hidden ? 'hidden' : '';
     }
-
 
     /**
      * @param mixed $hidden

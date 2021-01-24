@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
 
 use Mrkatz\Input\Input;
@@ -13,7 +12,6 @@ trait HasForm
     private $formmethod;
     private $formtarget;
     private $formnovalidate;
-
 
     /**
      * @param bool $html
@@ -58,10 +56,10 @@ trait HasForm
      */
     public function getFormaction($html = false)
     {
-
         if ($html) {
             return $this->formatFormAction($this->formaction);
         }
+
         return $this->formaction;
     }
 
@@ -97,6 +95,7 @@ trait HasForm
         if ($html) {
             return $this->formatFormEnctype($this->formenctype);
         }
+
         return $this->formenctype;
     }
 
@@ -142,10 +141,10 @@ trait HasForm
      */
     public function getFormmethod($html = false)
     {
-
         if ($html) {
             return $this->formatFormMethod($this->formmethod);
         }
+
         return $this->formmethod;
     }
 
@@ -175,7 +174,6 @@ trait HasForm
                 break;
         }
 
-
         return $this->return();
     }
 
@@ -189,6 +187,7 @@ trait HasForm
         if ($html) {
             return $this->formatFormTarget($this->formtarget);
         }
+
         return $this->formtarget;
     }
 
@@ -241,6 +240,7 @@ trait HasForm
         if ($html) {
             return $this->formatFormNoValidate($this->formnovalidate);
         }
+
         return $this->formnovalidate;
     }
 
@@ -251,11 +251,11 @@ trait HasForm
      */
     public function formatFormNoValidate($formNoValidate)
     {
-        return $formNoValidate ? "formnovalidate" : '';
+        return $formNoValidate ? 'formnovalidate' : '';
     }
 
     /**
-     * @param boolean $formnovalidate
+     * @param bool $formnovalidate
      *
      * @return Input
      */

@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits;
 
 trait HasHtml
@@ -20,10 +19,10 @@ trait HasHtml
 
     public function setWrap($html = '{input}')
     {
-        $wrapType   = isset($this->wrap['type']) ? $this->wrap['type'] : null;
+        $wrapType = isset($this->wrap['type']) ? $this->wrap['type'] : null;
         $wrapFormat = isset($this->wrap['format']) ? $this->wrap['format'] : null;
 
-        if (!isset($wrapType) && !isset($wrapFormat)) {
+        if (! isset($wrapType) && ! isset($wrapFormat)) {
             return $html;
         }
 
@@ -35,6 +34,7 @@ trait HasHtml
             if (strpos($stub, '{class}')) {
                 return str_replace('{class}', $wrapClass, $stub);
             }
+
             return $stub;
         }
 
@@ -43,12 +43,13 @@ trait HasHtml
 
     public function setLabel($html)
     {
-        if (!$this->hasLabel()) {
+        if (! $this->hasLabel()) {
             return str_replace('{label}', '', $html);
         }
 
         if (strpos($html, '{label}')) {
             $this->labelPosition = 'wrap';
+
             return str_replace('{label}', $this->getLabel(true), $html);
         }
 
@@ -57,7 +58,7 @@ trait HasHtml
 
     public function setErrors($stub)
     {
-        if (!$this->hasError($this->getName()) || $this->errorMessagePosition == null) {
+        if (! $this->hasError($this->getName()) || $this->errorMessagePosition == null) {
             return $stub;
         }
 
@@ -66,10 +67,10 @@ trait HasHtml
         }
 
         if (in_array($this->errorMessagePosition, ['above', 'top'])) {
-            return str_replace('{input}', $this->formatError() . '{input}', $stub);
+            return str_replace('{input}', $this->formatError().'{input}', $stub);
         }
 
-        return str_replace('{input}', '{input}' . $this->formatError(), $stub);
+        return str_replace('{input}', '{input}'.$this->formatError(), $stub);
     }
 
     public function setInput($html)
@@ -77,10 +78,12 @@ trait HasHtml
         $stub = str_replace('{input}', $this->getStub(), $html);
 
         foreach ($this->config("slots.{$this->getType()}") as $attribute) {
-            $function = 'get' . ucfirst($attribute);
-            $value    = $this->$function(true);
+            $function = 'get'.ucfirst($attribute);
+            $value = $this->$function(true);
 
-            if ($value != '') $value .= ' ';
+            if ($value != '') {
+                $value .= ' ';
+            }
             $stub = str_replace("{{$attribute}}", $value, $stub);
         }
 

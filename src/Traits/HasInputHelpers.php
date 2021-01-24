@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits;
-
 
 use Mrkatz\Input\Input;
 
@@ -11,7 +9,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -24,7 +22,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -37,7 +35,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -50,7 +48,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -63,7 +61,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -76,7 +74,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -89,7 +87,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -102,7 +100,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -115,7 +113,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -128,14 +126,14 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
      */
     public function hidden(string $name, $value = null, $attributes = null, $continue = true)
     {
-        if (!isset($value) && is_bool($name)) {
+        if (! isset($value) && is_bool($name)) {
             return $this->hiddenA($name);
         }
 
@@ -145,7 +143,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -158,7 +156,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -171,7 +169,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -184,7 +182,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -197,7 +195,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -210,7 +208,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -223,7 +221,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -236,7 +234,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -249,7 +247,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -262,7 +260,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -275,7 +273,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -288,7 +286,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -301,7 +299,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|string|array $value
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -312,7 +310,6 @@ trait HasInputHelpers
     }
 
     /**
-     *
      * @return Input
      */
     public function csrftoken()
@@ -323,7 +320,7 @@ trait HasInputHelpers
     /**
      * @param string $name
      * @param null|array $options
-     * @param null|array|boolean $attributes
+     * @param null|array|bool $attributes
      * @param bool|null $continue
      *
      * @return Input
@@ -332,5 +329,4 @@ trait HasInputHelpers
     {
         return $this->filterInputs('select', $name, $options, $attributes, $continue);
     }
-
 }

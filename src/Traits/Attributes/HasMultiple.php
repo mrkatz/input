@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasMultiple
         if ($html) {
             return $this->formatMultiple($this->multiple);
         }
+
         return $this->multiple;
     }
 

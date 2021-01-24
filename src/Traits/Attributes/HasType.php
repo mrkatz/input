@@ -32,6 +32,7 @@ trait HasType
         if ($html) {
             return $this->formatType($this->type);
         }
+
         return $this->type;
     }
 

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits;
-
 
 trait HasLabel
 {
@@ -21,7 +19,7 @@ trait HasLabel
     {
         if (is_bool($text)) {
             $this->labelPosition = $text ? $option2 : null;
-            $this->label         = $this->getName();
+            $this->label = $this->getName();
         } else {
             $this->label = $text;
         }
@@ -53,7 +51,7 @@ trait HasLabel
     public function getLabel($html = false)
     {
         if ($html) {
-            if (!is_array($this->labelOptions)) {
+            if (! is_array($this->labelOptions)) {
                 $this->labelOptions = [];
             }
 
@@ -63,6 +61,7 @@ trait HasLabel
 
             return $this->formatLabel(array_merge($this->labelOptions, ['value' => $this->label]), $this->labelPosition);
         }
+
         return $this->labelPosition;
     }
 
@@ -81,7 +80,7 @@ trait HasLabel
         if (is_array($label)) {
             $properties = array_merge($props, $label);
         } else {
-            $properties          = $props;
+            $properties = $props;
             $properties['value'] = $label;
         }
 
@@ -90,10 +89,10 @@ trait HasLabel
         }
 
         if (in_array($position, ['above', 'left', 'top'])) {
-            return $stub . '{input}';
+            return $stub.'{input}';
         }
         if (in_array($position, ['below', 'right', 'bottom'])) {
-            return '{input}' . $stub;
+            return '{input}'.$stub;
         }
 
         return $stub;

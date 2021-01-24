@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits\Attributes;
-
 
 use Mrkatz\Input\Input;
 
@@ -20,6 +18,7 @@ trait HasMaxLength
         if ($html) {
             return $this->formatMaxLength($this->maxlength);
         }
+
         return $this->maxlength;
     }
 

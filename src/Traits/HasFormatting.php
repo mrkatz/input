@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mrkatz\Input\Traits;
-
 
 use Mrkatz\Input\Input;
 
@@ -30,10 +28,9 @@ trait HasFormatting
     public function wrap($type = null, $class = null, $format = null)
     {
         $this->wrap = ['type'   => $type,
-                       'class'  => $class,
-                       'format' => $format,];
+            'class'  => $class,
+            'format' => $format, ];
 
         return $this->return();
     }
-
 }

@@ -47,7 +47,6 @@ trait HasAttributes
     protected function setAttributes($attributes)
     {
         foreach ($attributes as $att => $value) {
-
             switch ($att) {
                 case 'id':
                     $this->id($value);
@@ -144,7 +143,6 @@ trait HasAttributes
                 case 'onclick':
                     $this->onclick($value);
                     break;
-
 
                 case 'formaction':
                     $this->formaction($value);

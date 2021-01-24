@@ -4,9 +4,6 @@ namespace Tests;
 
 use Carbon\Carbon;
 use Illuminate\Support\MessageBag;
-use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\date;
-use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\text;
-use Mrkatz\Collection\HtmlBuilder\Classes\Inputs\textarea;
 use Mrkatz\Input\Input;
 use Mrkatz\Input\InputServiceProvider;
 use Orchestra\Testbench\TestCase;
@@ -14,7 +11,7 @@ use Orchestra\Testbench\TestCase;
 class InputTests extends TestCase
 {
     /**
-     * Load package service provider
+     * Load package service provider.
      * @param \Illuminate\Foundation\Application $app
      * @return InputServiceProvider
      */
@@ -24,7 +21,7 @@ class InputTests extends TestCase
     }
 
     /**
-     * Load package alias
+     * Load package alias.
      * @param \Illuminate\Foundation\Application $app
      * @return array
      */
@@ -35,7 +32,7 @@ class InputTests extends TestCase
         ];
     }
 
-    #region Input Value Tests
+    //region Input Value Tests
 
     /**
      * @dataProvider types
@@ -131,9 +128,10 @@ class InputTests extends TestCase
         $this->assertEquals($stub, $input);
     }
 
-    #endregion
+    //endregion
 
-    #region Attributes on Inputs
+    //region Attributes on Inputs
+
     /**
      * @dataProvider attributes
      * @test
@@ -148,9 +146,7 @@ class InputTests extends TestCase
         $types = config('input.slots');
 
         foreach ($types as $type => $atts) {
-            if (!in_array($type, ['option', 'progress', 'meter', 'label'])) {
-
-
+            if (! in_array($type, ['option', 'progress', 'meter', 'label'])) {
                 if (in_array($attribute, $atts)) {
                     $method = $type;
                     $stub = null;
@@ -186,7 +182,6 @@ class InputTests extends TestCase
                         $this->assertEquals($stub, $input);
                     }
 
-
                     /** @var Input $input */
                     $input = input()->{$method}($name, null, [$attribute => $value])->html();
 
@@ -199,7 +194,6 @@ class InputTests extends TestCase
                 }
             }
         }
-
     }
 
     /**
@@ -254,7 +248,7 @@ class InputTests extends TestCase
         $this->assertEquals($stub, $input);
 
         //2 options & value
-        $options = [$value => $text, "val-2" => "val-2-label"];
+        $options = [$value => $text, 'val-2' => 'val-2-label'];
         $stub = "<select name=\"{$name}\" ><option value=\"{$value}\" selected >{$text} </option><option value=\"val-2\" >val-2-label </option> </select>";
         $input = input()->select($name, $options)->value($value)->html();
         $this->assertEquals($stub, $input);
@@ -272,13 +266,13 @@ class InputTests extends TestCase
         $this->assertEquals($stub, $input);
 
         //multiple selected values
-        $options = [$value => $text, "val-2" => "val-2-label"];
+        $options = [$value => $text, 'val-2' => 'val-2-label'];
         $stub = "<select name=\"{$name}[]\" multiple ><option value=\"{$value}\" selected >{$text} </option><option value=\"val-2\" selected >val-2-label </option> </select>";
-        $input = input()->select($name, $options)->multiple()->value([$value, "val-2"])->html();
+        $input = input()->select($name, $options)->multiple()->value([$value, 'val-2'])->html();
         $this->assertEquals($stub, $input);
 
         //multiple selected values
-        $options = [$value => [$text, ['selected' => true]], "val-2" => ["val-2-label", ['selected' => true]]];
+        $options = [$value => [$text, ['selected' => true]], 'val-2' => ['val-2-label', ['selected' => true]]];
         $stub = "<select name=\"{$name}[]\" multiple ><option value=\"{$value}\" selected >{$text} </option><option value=\"val-2\" selected >val-2-label </option> </select>";
         $input = input()->select($name, $options)->multiple()->html();
         $this->assertEquals($stub, $input);
@@ -312,19 +306,19 @@ class InputTests extends TestCase
                 break;
         }
 
-//wrap type & class
+        //wrap type & class
         /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->wrap('div', 'form-control')->html();
 
         $this->assertEquals("<div class=\"form-control\">{$stub}</div>", $input);
 
-//wrap format
+        //wrap format
         /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->wrap(null, null, '<div class="form-control">{input}</div>')->html();
 
         $this->assertEquals("<div class=\"form-control\">{$stub}</div>", $input);
 
-//wrap format & class
+        //wrap format & class
         /** @var Input $input */
         $input = input()->{$type}($name)->value($value)->wrap(null, 'form-control', '<div {class}>{input}</div>')->html();
 
@@ -413,8 +407,8 @@ class InputTests extends TestCase
         $input->errors = new MessageBag();
         $input->errors->add('adam', 'this is an error');
 
-        $error = "<div class=\"invalid-feedback\">this is an error</div>";
-        $inputHtml = "<input name=\"adam\" type=\"text\" class=\"ErrorClass\" >";
+        $error = '<div class="invalid-feedback">this is an error</div>';
+        $inputHtml = '<input name="adam" type="text" class="ErrorClass" >';
 
         $this->assertEquals("{$inputHtml}{$error}", $input->html());
 
@@ -424,10 +418,9 @@ class InputTests extends TestCase
 
         $this->assertEquals("<div>{$inputHtml}</div><span class=\"span-out\">{$error}</span>",
             $input->wrap(null, ['span-out'], '<div>{input}</div><span {class}>{error}</span>')->html());
-
     }
 
-    #endregion
+    //endregion
     public function types()
     {
         return [

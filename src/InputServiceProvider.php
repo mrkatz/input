@@ -33,7 +33,7 @@ class InputServiceProvider extends ServiceProvider
     {
         // Publishing the configuration file.
         $this->publishes([
-            __DIR__.'/../config/input.php' => config_path('input.php'),
+            __DIR__.'/../config/input.php' => config_path('Input.php'),
         ], 'input.config');
 
         // Publishing the views.
